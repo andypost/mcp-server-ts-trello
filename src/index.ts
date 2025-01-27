@@ -9,7 +9,7 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { config } from 'dotenv';
 import { TrelloClient } from './trello-client.js';
-import { GetCardsRequest, GetListsRequest, GetCardDetailsRequest } from './types.js';
+import { GetCardsRequest, GetListsRequest, GetCardDetailsRequest, UpdateCardRequest } from './types.js';
 
 // Load environment variables
 config();
@@ -129,6 +129,32 @@ class TrelloServer {
             title: 'get_card_detailsArguments',
           },
         },
+        {
+          name: 'update_card',
+          description: 'Update properties of a specific card',
+          inputSchema: {
+            type: 'object',
+            properties: {
+              request: {
+                type: 'object',
+                properties: {
+                  card_id: {
+                    type: 'string',
+                    description: 'ID of the card',
+                  },
+                  update_data: {
+                    type: 'object',
+                    description: 'Properties to update on the card',
+                    additionalProperties: true,
+                  },
+                },
+                required: ['card_id', 'update_data'],
+              },
+            },
+            required: ['request'],
+            title: 'update_cardArguments',
+          },
+        },
       ],
     }));
 
@@ -162,6 +188,14 @@ class TrelloServer {
             const cardDetails = await this.trelloClient.getCardDetails(card_id);
             return {
               content: [{ type: 'text', text: JSON.stringify(cardDetails, null, 2) }],
+            };
+          }
+
+          case 'update_card': {
+            const { card_id, update_data } = (request.params.arguments as { request: UpdateCardRequest }).request;
+            const updatedCard = await this.trelloClient.updateCard(card_id, update_data);
+            return {
+              content: [{ type: 'text', text: JSON.stringify(updatedCard, null, 2) }],
             };
           }
 

@@ -41,4 +41,22 @@ export class TrelloClient {
     );
     return response.data;
   }
+
+  async updateCard(cardId: string, updateData: Partial<Card>): Promise<Card> {
+    const response = await axios.put(
+      `${this.baseUrl}/cards/${cardId}?${this.getAuthParams()}`,
+      updateData
+    );
+    return response.data;
+  }
+
+  async moveCardToList(cardId: string, listId: string, description?: string): Promise<Card> {
+    const updateData: Partial<Card> = {
+      idList: listId
+    };
+    if (description) {
+      updateData.desc = description;
+    }
+    return this.updateCard(cardId, updateData);
+  }
 }

@@ -54,3 +54,8 @@ export interface GetCardsRequest {
 export interface GetCardDetailsRequest {
   card_id: string;
 }
+
+export interface UpdateCardRequest {
+  card_id: string;
+  update_data: Partial<Card>;
+}
