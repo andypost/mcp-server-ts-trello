@@ -1,0 +1,33 @@
+{
+  "name": "mcp-server-ts-trello",
+  "version": "1.0.0",
+  "description": "TypeScript implementation of a Model Context Protocol (MCP) server for Trello integration",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "start": "node build/index.js",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [
+    "mcp",
+    "trello",
+    "typescript",
+    "ai",
+    "model-context-protocol",
+    "api-integration"
+  ],
+  "author": "GTT Team",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andypost/mcp-server-ts-trello"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.4.1",
+    "@types/node": "^22.10.10",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "typescript": "^5.7.3"
+  }
+}
