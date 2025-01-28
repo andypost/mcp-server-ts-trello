@@ -1,4 +1,5 @@
 # Trello MCP Server (TypeScript)
+[![smithery badge](https://smithery.ai/badge/@andypost/mcp-server-ts-trello)](https://smithery.ai/server/@andypost/mcp-server-ts-trello)
 
 A TypeScript implementation of a Model Context Protocol (MCP) server for Trello integration, providing tools for AI assistants to interact with Trello boards, lists, and cards.
 
@@ -18,6 +19,15 @@ A TypeScript implementation of a Model Context Protocol (MCP) server for Trello 
 
 ## Installation
 
+### Installing via Smithery
+
+To install Trello MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@andypost/mcp-server-ts-trello):
+
+```bash
+npx -y @smithery/cli install @andypost/mcp-server-ts-trello --client claude
+```
+
+### Manual Installation
 ```bash
 # Install dependencies
 make install
