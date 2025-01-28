@@ -2,6 +2,8 @@
 
 A TypeScript implementation of a Model Context Protocol (MCP) server for Trello integration, providing tools for AI assistants to interact with Trello boards, lists, and cards.
 
+<a href="https://glama.ai/mcp/servers/zekev8gy7i"><img width="380" height="200" src="https://glama.ai/mcp/servers/zekev8gy7i/badge" alt="Trello Server MCP server" /></a>
+
 ## Features
 
 - Full Trello API integration through MCP tools
